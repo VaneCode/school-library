@@ -1,4 +1,3 @@
-# Private method is_of_age? that returns true if @age is greater or equal to 18 and false otherwise.
 # Public method can_use_services? that returns true if person is of age or if they have permission from parents.
 
 class Person
@@ -12,11 +11,19 @@ class Person
   attr_reader :id
   attr_accessor :name, :age
 
+  def can_use_services?
+    of_age? || @parent_permission == true
+  end
+
   # Private methods
 
   private
 
   def of_age?
-    returns true if @age >= 18
+    if @age >= 18
+      returns true
+    else
+      returns false
+    end
   end
 end
