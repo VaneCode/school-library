@@ -11,4 +11,12 @@ class Person
   # Getters and setters
   attr_reader :id
   attr_accessor :name, :age
+
+  # Private methods
+
+  private
+
+  def of_age?
+    returns true if @age >= 18
+  end
 end
