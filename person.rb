@@ -1,5 +1,3 @@
-# Public method can_use_services? that returns true if person is of age or if they have permission from parents.
-
 class Person
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Random.rand(1..1000)
