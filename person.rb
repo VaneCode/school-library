@@ -1,4 +1,4 @@
-class Person
+class Person < Nameable
   # Getters and setters
   attr_reader :id
   attr_accessor :name, :age
