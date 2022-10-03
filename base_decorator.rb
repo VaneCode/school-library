@@ -1,0 +1,2 @@
+class BaseDecorator < Nameable
+end
