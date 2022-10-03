@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet) ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
-# Project Name
+# School Library
 
-> Description the project.
+> This project allows you to insert new students, teachers and books. As well as keeping track of the books that have been borrowed and returned. The project was built with Ruby.
 
 ## Built With
 
@@ -38,13 +38,13 @@ If you don't have Ruby, you can find a complete list of ways to install Ruby, in
 
 If you installed git you can clone the code to your machine, or download a ZIP of all the files directly.
 
-[Download the ZIP from this location](https://github.com/VaneCode/metrics-webapp/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
+[Download the ZIP from this location](https://github.com/VaneCode/school-libray/archive/refs/heads/main.zip), or run the following [git](https://git-scm.com/downloads) command to clone the files to your machine:
 
 ```bash
-git clone https://github.com/VaneCode/metrics-webapp.git
+git clone https://github.com/VaneCode/school-library.git
 ```
 
-- Open the [Repository Link](https://github.com/VaneCode/metrics-webapp) of this project in GitHub.
+- Open the [Repository Link](https://github.com/VaneCode/school-library) of this project in GitHub.
 
 - Once the files are on your machine, open metrics-webapp folder in [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -52,31 +52,13 @@ git clone https://github.com/VaneCode/metrics-webapp.git
 
 -Once you have your repository cloned on your machine, feel free to modify it as needed.
 
-## Authors
+## Author
 
 👤 **Vanessa Bonito**
 
 - GitHub: [@VaneCode](https://github.com/VaneCode)
 - Twitter: [@BonitoNarvaez](https://twitter.com/BonitoNarvaez)
 - LinkedIn: [Vanessa Bonito Narváez](https://www.linkedin.com/in/vanessa-bonito-narvaez/)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author3**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author4**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
 
 ## 🤝 Contributing
 
