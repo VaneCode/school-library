@@ -2,7 +2,15 @@
 
 # School Library
 
-> This project allows you to insert new students, teachers and books. As well as keeping track of the books that have been borrowed and returned. The project was built with Ruby.
+> This project is a console application that allows you to insert new students, teachers and books. As well as keeping track of the books that have been borrowed and returned. The project was built with the programming language Ruby.
+
+# Features
+
+- List all students and teachers.
+- List all books.
+- Insert new student, teacher, or book.
+- Create a rental.
+- List all rentals for a given person id.
 
 ## Built With
 
