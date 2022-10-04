@@ -1,6 +1,7 @@
 require './nameable'
 require './capitalize_decorator'
 require './trimmer_decorator'
+require './rental'
 
 class Person < Nameable
   # Getters and setters
@@ -22,6 +23,10 @@ class Person < Nameable
 
   def correct_name
     @name
+  end
+
+  def add_rental(book, date)
+    Rental.new(date, self, book)
   end
 
   # Private methods
