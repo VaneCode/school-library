@@ -6,11 +6,11 @@
 
 # Features
 
--List all students and teachers.
--List all books.
--Insert new student, teacher, or book.
--Create a rental.
--List all rentals for a given person id.
+- List all students and teachers.
+- List all books.
+- Insert new student, teacher, or book.
+- Create a rental.
+- List all rentals for a given person id.
 
 ## Built With
 
