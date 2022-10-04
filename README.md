@@ -6,8 +6,8 @@
 
 ## Built With
 
-- Ruby
-- Visual Studio Code
+- Language: Ruby
+- Code editor: Visual Studio Code
 - Linters: Rubocop
 
 ## Live Demo (if available)
