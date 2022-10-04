@@ -4,7 +4,7 @@ require './trimmer_decorator'
 
 class Person < Nameable
   # Getters and setters
-  attr_reader :id
+  attr_reader :id, :rentals
   attr_accessor :name, :age
 
   def initialize(age, name = 'Unknown', parent_permission: true)
@@ -13,6 +13,7 @@ class Person < Nameable
     @name = name
     @parent_permission = parent_permission
     @age = age
+    @rentals = []
   end
 
   def can_use_services?
