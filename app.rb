@@ -150,11 +150,3 @@ class App
     end
   end
 end
-
-app = App.new
-app.create_person
-# app.create_book
-# app.rental_control
-app.list_people
-app.rentals_by_person_id
-app.rentals_by_person_id
