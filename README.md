@@ -54,7 +54,7 @@ git clone https://github.com/VaneCode/school-library.git
 
 - Open the [Repository Link](https://github.com/VaneCode/school-library) of this project in GitHub.
 
-- Once the files are on your machine, open metrics-webapp folder in [Visual Studio Code](https://code.visualstudio.com/).
+- Once the files are on your machine, open school-library folder in [Visual Studio Code](https://code.visualstudio.com/).
 
 ### Usage
 
