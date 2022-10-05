@@ -18,9 +18,9 @@
 - Code editor: Visual Studio Code
 - Linters: Rubocop
 
-## Live Demo (if available)
+## Quick view
 
-[Live Demo Link](https://livedemo.com)
+(./assets)
 
 
 ## Getting Started
