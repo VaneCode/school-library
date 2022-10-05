@@ -3,6 +3,8 @@ require './teacher'
 require './student'
 require './rental'
 class App
+  attr_reader :rentals
+
   def initialize
     @books = []
     @people = []
@@ -14,7 +16,7 @@ class App
     if @books.length.zero?
       puts 'There are not books at the moment.'
     else
-      @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
+      @books.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book.title}\", Author: #{book.author}" }
     end
   end
 
@@ -23,7 +25,9 @@ class App
     if @people.length.zero?
       puts 'There are not people at the moment.'
     else
-      @people.each { |person| puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}" }
+      @people.each_with_index do |person, idx|
+        puts "#{idx}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
     end
   end
 
@@ -66,7 +70,7 @@ class App
     name = gets.chomp
     create_person_type(person_type, age, name)
     person = person_type == 1 ? 'Student' : 'Teacher'
-    print "\n#{person} created successfully\n"
+    print "#{person} created successfully\n"
   end
 
   # Create a book.
@@ -87,12 +91,50 @@ class App
     end
     book = Book.new(title, author)
     add_book(book)
-    print "\nBook created successfully\n"
+    print "Book created successfully\n"
   end
+
   # Create a rental.
+  def add_rental(rental)
+    @rentals << rental
+  end
+
+  def create_rental
+    idx_book = -1
+    idx_person = -1
+    until (0..@books.length - 1).include? idx_book
+      puts 'Select a book from the following list by number'
+      list_books
+      idx_book = gets.chomp.to_i
+    end
+    until (0..@people.length - 1).include? idx_person
+      puts 'Select a person from the following list by number (not id)'
+      list_people
+      idx_person = gets.chomp.to_i
+    end
+    print 'Date: '
+    date = gets.chomp
+    rental = Rental.new(date, @people[idx_person], @books[idx_book])
+    add_rental(rental)
+    print 'Rental created successfully'
+  end
+
+  def rental_control
+    if @books.length.zero?
+      puts 'There are not books for rental'
+    elsif @people.length.zero?
+      puts 'There are no registered people to make the rental'
+    elsif @people.length.zero? && @books.length.zero?
+      puts 'There are no people and books registered to make the rental'
+    else
+      create_rental
+    end
+  end
+
   # List all rentals for a given person id.
 end
 
 app = App.new
+app.create_person
 app.create_book
-app.list_books
+app.rental_control
