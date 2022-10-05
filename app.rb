@@ -39,9 +39,12 @@ class App
   def create_person_type(type, age, name)
     case type
     when 1
-      print 'Has parrent permission? [Y/N]:'
-      permission = gets.chomp.capitalize == 'Y'
-      student = Student.new(nil, age, name, parent_permission: permission)
+      permission = ''
+      until %w[Y N].include?(permission)
+        print 'Has parrent permission? [Y/N]:'
+        permission = gets.chomp.capitalize
+      end
+      student = Student.new(nil, age, name, parent_permission: permission == 'Y')
       add_student(student)
     when 2
       print 'Specialization: '
@@ -52,20 +55,44 @@ class App
   end
 
   def create_person
-    print 'Do you want to create a student (1) or do you want to create a teacher (2)? [Input the number]:'
-    person_type = gets.chomp.to_i
-    print 'Age:'
+    person_type = 0
+    until [1, 2].include?(person_type)
+      print 'Do you want to create a student (1) or do you want to create a teacher (2)? [Input the number]:'
+      person_type = gets.chomp.to_i
+    end
+    print 'Age: '
     age = gets.chomp.to_i
-    print 'Name:'
+    print 'Name: '
     name = gets.chomp
     create_person_type(person_type, age, name)
     person = person_type == 1 ? 'Student' : 'Teacher'
-    puts "#{person} created successfully"
+    print "\n#{person} created successfully\n"
   end
+
   # Create a book.
+  def add_book(book)
+    @books << book
+  end
+
+  def create_book
+    title = ''
+    author = ''
+    while title.empty?
+      print 'Title : '
+      title = gets.chomp
+    end
+    while author.empty?
+      print 'Author: '
+      author = gets.chomp
+    end
+    book = Book.new(title, author)
+    add_book(book)
+    print "\nBook created successfully\n"
+  end
   # Create a rental.
   # List all rentals for a given person id.
 end
 
 app = App.new
-app.create_person
+app.create_book
+app.list_books
