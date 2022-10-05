@@ -100,8 +100,8 @@ class App
   end
 
   def create_rental
-    idx_book = -1
-    idx_person = -1
+    idx_book = nil
+    idx_person = nil
     until (0..@books.length - 1).include? idx_book
       puts 'Select a book from the following list by number'
       list_books
@@ -116,7 +116,7 @@ class App
     date = gets.chomp
     rental = Rental.new(date, @people[idx_person], @books[idx_book])
     add_rental(rental)
-    print 'Rental created successfully'
+    print "Rental created successfully\n"
   end
 
   def rental_control
@@ -132,9 +132,29 @@ class App
   end
 
   # List all rentals for a given person id.
+
+  def rentals_by_person_id
+    print 'ID of person: '
+    id = gets.chomp.to_i
+    person = nil
+    @people.each { |p| person = p if p.id == id }
+    if person.nil?
+      puts "There is not person with the id #{id} registered"
+    elsif person.rentals.length.zero?
+      puts "Person #{id}: #{person.name} doesn't have rentals"
+    else
+      puts 'Rentals:'
+      person.rentals.each do |rental|
+        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
+      end
+    end
+  end
 end
 
 app = App.new
 app.create_person
-app.create_book
-app.rental_control
+# app.create_book
+# app.rental_control
+app.list_people
+app.rentals_by_person_id
+app.rentals_by_person_id
