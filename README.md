@@ -18,10 +18,9 @@
 - Code editor: Visual Studio Code
 - Linters: Rubocop
 
-## Quick view
+## Quick view: see the video
 
-(./assets)
-
+[![UI example](https://github.com/VaneCode/school-library/blob/add-UI/assets/app-UI.JPG)](https://youtu.be/V4Si9mawQtg)
 
 ## Getting Started
 
