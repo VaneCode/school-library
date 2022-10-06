@@ -18,10 +18,9 @@
 - Code editor: Visual Studio Code
 - Linters: Rubocop
 
-## Live Demo (if available)
+## Quick view: see the video
 
-[Live Demo Link](https://livedemo.com)
-
+[![UI example](https://github.com/VaneCode/school-library/blob/add-UI/assets/app-UI.JPG)](https://youtu.be/V4Si9mawQtg)
 
 ## Getting Started
 
@@ -54,7 +53,7 @@ git clone https://github.com/VaneCode/school-library.git
 
 - Open the [Repository Link](https://github.com/VaneCode/school-library) of this project in GitHub.
 
-- Once the files are on your machine, open metrics-webapp folder in [Visual Studio Code](https://code.visualstudio.com/).
+- Once the files are on your machine, open school-library folder in [Visual Studio Code](https://code.visualstudio.com/).
 
 ### Usage
 
