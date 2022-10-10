@@ -29,6 +29,32 @@ class Person < Nameable
     Rental.new(date, self, book)
   end
 
+  # List all people.
+  def self.list_people(people)
+    if people.empty?
+      puts 'There are not people at the moment.'
+    else
+      people.each_with_index do |person, idx|
+        puts "#{idx}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
+    end
+  end
+
+  # Create a person (teacher or student, not a plain Person).
+  def self.create_person(people)
+    person_type = 0
+    until [1, 2].include?(person_type)
+      print 'Do you want to create a student (1) or do you want to create a teacher (2)? [Input the number]:'
+      person_type = gets.chomp.to_i
+    end
+    case person_type
+    when 1 then person = Student.create_student
+    when 2 then person = Teacher.create_teacher
+    end
+    people << person
+    print "#{person.class} created successfully\n"
+  end
+
   # Private methods
 
   private
