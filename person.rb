@@ -2,8 +2,6 @@ require './nameable'
 require './capitalize_decorator'
 require './trimmer_decorator'
 require './rental'
-require './student'
-require './teacher'
 
 class Person < Nameable
   # Getters and setters
@@ -33,7 +31,7 @@ class Person < Nameable
 
   # List all people.
   def self.list_people(people)
-    if people.length.zero?
+    if people.empty?
       puts 'There are not people at the moment.'
     else
       people.each_with_index do |person, idx|
@@ -43,18 +41,18 @@ class Person < Nameable
   end
 
   # Create a person (teacher or student, not a plain Person).
-  def create_person
+  def self.create_person(people)
     person_type = 0
     until [1, 2].include?(person_type)
       print 'Do you want to create a student (1) or do you want to create a teacher (2)? [Input the number]:'
       person_type = gets.chomp.to_i
     end
     case person_type
-    when 1 then Student.create_student
-    when 2 then Teacher.create_teacher
+    when 1 then person = Student.create_student
+    when 2 then person = Teacher.create_teacher
     end
-    person = person_type == 1 ? 'Student' : 'Teacher'
-    print "#{person} created successfully\n"
+    people << person
+    print "#{person.class} created successfully\n"
   end
 
   # Private methods

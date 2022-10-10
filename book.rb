@@ -15,7 +15,7 @@ class Book
 
   # List all books.
   def self.list_books(books)
-    if books.length.zero?
+    if books.empty?
       puts 'There are not books at the moment.'
     else
       books.each_with_index { |book, idx| puts "#{idx}) Title: \"#{book.title}\", Author: #{book.author}" }
@@ -23,7 +23,7 @@ class Book
   end
 
   # Create a book
-  def self.create_book
+  def self.create_book(books)
     title = ''
     author = ''
     while title.empty?
@@ -34,7 +34,7 @@ class Book
       print 'Author: '
       author = gets.chomp
     end
-    Book.new(title, author)
+    books << Book.new(title, author)
     print "Book created successfully\n"
   end
 end

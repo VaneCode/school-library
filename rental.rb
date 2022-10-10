@@ -1,74 +1,65 @@
-require './book'
-require './people'
-class Rental
-  attr_accessor :date
-  attr_reader :person, :book
+require './nameable'
+require './capitalize_decorator'
+require './trimmer_decorator'
+require './rental'
 
-  def initialize(date, person, book)
-    @date = date
+class Person < Nameable
+  # Getters and setters
+  attr_reader :id, :rentals
+  attr_accessor :name, :age
 
-    @person = person
-    person.rentals << self
-
-    @book = book
-    book.rentals << self
+  def initialize(age, name = 'Unknown', parent_permission: true)
+    super()
+    @id = Random.rand(1..1000)
+    @name = name
+    @parent_permission = parent_permission
+    @age = age
+    @rentals = []
   end
 
-  # Create rental
-  def create_rental(books, people)
-    idx_book = nil
-    idx_person = nil
-    until (0..book.length - 1).include? idx_book
-      puts 'Select a book from the following list by number'
-      Book.list_books
-      idx_book = gets.chomp.to_i
-    end
-    until (0..@people.length - 1).include? idx_person
-      puts 'Select a person from the following list by number (not id)'
-      Person.list_people
-      idx_person = gets.chomp.to_i
-    end
-    print 'Date: '
-    date = gets.chomp
-    Rental.new(date, people[idx_person], books[idx_book])
-    print "Rental created successfully\n"
+  def can_use_services?
+    of_age? || @parent_permission
   end
 
-  def self.rental_control(books, people)
-    if books.length.zero?
-      puts 'There are not books for rental'
-    elsif people.length.zero?
-      puts 'There are no registered people to make the rental'
-    elsif people.length.zero? && books.length.zero?
-      puts 'There are no people and books registered to make the rental'
+  def correct_name
+    @name
+  end
+
+  def add_rental(book, date)
+    Rental.new(date, self, book)
+  end
+
+  # List all people.
+  def self.list_people(people)
+    if people.empty?
+      puts 'There are not people at the moment.'
     else
-      create_rental(books, people)
-    end
-  end
-
-  # List all rentals for a given person id.
-  def show_rentals(people)
-    print 'ID of person: '
-    id = gets.chomp.to_i
-    person = nil
-    people.each { |p| person = p if p.id == id }
-    if person.nil?
-      puts "There is not person with the id #{id} registered"
-    elsif person.rentals.length.zero?
-      puts "Person #{id}: #{person.name} doesn't have rentals"
-    else
-      puts 'Rentals:'
-      person.rentals.each do |rental|
-        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
+      people.each_with_index do |person, idx|
+        puts "#{idx}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
     end
   end
 
-  def self.rentals_by_person_id(people, rentals)
-    if rentals.length.zero?
-      puts 'There are not rentals registered'
-    else
-      show_rentals(people)
+  # Create a person (teacher or student, not a plain Person).
+  def self.create_person(people)
+    person_type = 0
+    until [1, 2].include?(person_type)
+      print 'Do you want to create a student (1) or do you want to create a teacher (2)? [Input the number]:'
+      person_type = gets.chomp.to_i
     end
+    case person_type
+    when 1 then person = Student.create_student
+    when 2 then person = Teacher.create_teacher
+    end
+    people << person
+    print "#{person.class} created successfully\n"
+  end
+
+  # Private methods
+
+  private
+
+  def of_age?
+    @age >= 18
   end
 end
