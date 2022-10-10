@@ -59,13 +59,19 @@ git clone https://github.com/VaneCode/school-library.git
 
 -Once you have your repository cloned on your machine, feel free to modify it as needed.
 
-## Author
+## Authors
 
 👤 **Vanessa Bonito**
 
 - GitHub: [@VaneCode](https://github.com/VaneCode)
 - Twitter: [@BonitoNarvaez](https://twitter.com/BonitoNarvaez)
 - LinkedIn: [Vanessa Bonito Narváez](https://www.linkedin.com/in/vanessa-bonito-narvaez/)
+
+**Ntihinduka Alpha**
+
+- GitHub: [@githubhandle](https://github.com/AlphaNtihinduka)
+- Twitter: [@twitterhandle](https://twitter.com/@alphantihinduka)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/ntihinduka-alpha-81bb7b22a/)
 
 ## 🤝 Contributing
 
