@@ -11,21 +11,38 @@ class App
     @rentals = []
   end
 
-  def add_student(student)
-    @people << student
+  # List user options
+  def list_options
+    puts 'Please choose an option by entering a number: '
+    puts '1 - List all books'
+    puts '2 - List all people'
+    puts '3 - Create a person'
+    puts '4 - Create a book'
+    puts '5 - Create a rental'
+    puts '6 - List all rentals for a given person id'
+    puts '7 - Exit'
   end
 
-  def add_teacher(teacher)
-    @people << teacher
+  def run_choice(choice)
+    case choice
+    when 1 then Book.list_books(@books)
+    when 2 then Person.list_people(@people)
+    when 3 then Person.create_person(@people)
+    when 4 then Book.create_book(@books)
+    when 5 then Rental.rental_control(@books, @people, @rentals)
+    when 6 then Rental.rentals_by_person_id(@people, @rentals)
+    when 7 then puts 'Bye ;)'
+    else puts 'Invalid option, please choose a number between 1 and 7'
+    end
   end
 
-  # Create a book.
-  def add_book(book)
-    @books << book
-  end
-
-  # Create a rental.
-  def add_rental(rental)
-    @rentals << rental
+  def run_app
+    user_choice = 0
+    puts "\nWelcome to School Library App!"
+    while user_choice != 7
+      list_options
+      user_choice = gets.chomp.to_i
+      run_choice(user_choice)
+    end
   end
 end
