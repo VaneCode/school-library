@@ -2,6 +2,7 @@ require './book'
 require './teacher'
 require './student'
 require './rental'
+require_relative 'handle_files'
 class App
   attr_reader :rentals, :books, :people
 
@@ -37,6 +38,8 @@ class App
   end
 
   def run_app
+    # Read data from json files
+    HandleFiles.read_books(@books)
     user_choice = 0
     puts "\nWelcome to School Library App!"
     while user_choice != 7
