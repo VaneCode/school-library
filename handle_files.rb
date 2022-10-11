@@ -32,6 +32,25 @@ class HandleFiles
 
   # Handle person.json file
 
+  # Auxiliary methods
+  def person_to_json(person)
+    case person
+    when person.instance_of?(Student)
+      { class: person.class, id: person.id, name: person.name, age: person.age, classroom: person.classroom, parent_permission: person.parent_permission }
+    when person.instance_of?(Teacher)
+      { class: person.class, id: person.id, name: person.name, age: person.age, specialization: person.specialization, parent_permission: person.parent_permission }
+    end
+  end
+
+  def person_to_object(person)
+    case person
+    when person['class'] = 'Student'
+      Student.new(person['classroom'], person['age'], person['name'], person['id'], person['parent_permission'])
+    when person['class'] = 'Teacher'
+      Teacher.new(person['specialization'], person['age'], person['name'], person['id'])
+    end
+  end
+
   # Read people
 
   # Write people
