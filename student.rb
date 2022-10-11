@@ -29,3 +29,6 @@ class Student < Person
     Student.new(nil, age, name, parent_permission: permission == 'Y')
   end
 end
+
+student = Student.new(nil, 23, 'aron', 56, false)
+puts student.id

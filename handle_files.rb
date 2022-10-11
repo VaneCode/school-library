@@ -33,27 +33,45 @@ class HandleFiles
   # Handle person.json file
 
   # Auxiliary methods
-  def person_to_json(person)
-    case person
-    when person.instance_of?(Student)
+  def self.person_to_json(person)
+    if person.instance_of?(Student)
+      puts 'Student'
       { class: person.class, id: person.id, name: person.name, age: person.age, classroom: person.classroom, parent_permission: person.parent_permission }
-    when person.instance_of?(Teacher)
+    else
+      puts 'Teacher'
       { class: person.class, id: person.id, name: person.name, age: person.age, specialization: person.specialization, parent_permission: person.parent_permission }
     end
   end
 
-  def person_to_object(person)
-    case person
-    when person['class'] = 'Student'
+  def self.person_to_object(person)
+    case person['class']
+    when 'Student'
       Student.new(person['classroom'], person['age'], person['name'], person['id'], person['parent_permission'])
-    when person['class'] = 'Teacher'
+    when  'Teacher'
       Teacher.new(person['specialization'], person['age'], person['name'], person['id'])
     end
   end
 
   # Read people
+  def self.read_people(people)
+    path = "#{DATA_DIRECTORY}people.json"
+    return unless File.exist?(path)
+
+    people_file = File.open(path)
+    JSON.parse(people_file.read).each { |person| people << person_to_object(person) }
+    people_file.close
+  end
 
   # Write people
+  def self.write_people(people)
+    return if people.empty?
+
+    path_file = "#{DATA_DIRECTORY}people.json"
+    data_people = people.map do |person|
+      person_to_json(person)
+    end
+    File.write(path_file, JSON.pretty_generate(data_people))
+  end
 
   # Handle rentals.json file
 

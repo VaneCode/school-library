@@ -26,6 +26,7 @@ class App
 
   def save_data
     HandleFiles.write_books(@books)
+    HandleFiles.write_people(@people)
   end
 
   def run_choice(choice)
@@ -46,6 +47,7 @@ class App
   def run_app
     # Read data from json files
     HandleFiles.read_books(@books)
+    HandleFiles.read_people(@people)
     user_choice = 0
     puts "\nWelcome to School Library App!"
     while user_choice != 7

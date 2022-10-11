@@ -6,7 +6,7 @@ require './rental'
 class Person < Nameable
   # Getters and setters
   attr_reader :id, :rentals
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :parent_permission
 
   def initialize(age, name = 'Unknown', id = nil, parent_permission: true)
     super()
