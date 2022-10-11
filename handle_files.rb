@@ -12,7 +12,7 @@ class HandleFiles
   # Read books
   def self.read_books(books)
     path = "#{DATA_DIRECTORY}books.json"
-    return [] unless File.exist?(path)
+    return unless File.exist?(path)
 
     books_file = File.open(path)
     JSON.parse(books_file.read).each { |book| books << Book.new(book['title'], book['author'], book['id']) }
@@ -20,6 +20,15 @@ class HandleFiles
   end
 
   # Write books
+  def self.write_books(books)
+    return if books.empty?
+
+    path_file = "#{DATA_DIRECTORY}books.json"
+    data_books = books.map do |book|
+      { title: book.title, author: book.author, id: book.id }
+    end
+    File.write(path_file, JSON.pretty_generate(data_books))
+  end
 
   # Handle person.json file
 
