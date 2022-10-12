@@ -47,7 +47,8 @@ class HandleFiles
   def self.person_to_object(person)
     case person['class']
     when 'Student'
-      Student.new(person['classroom'], person['age'], person['name'], person['id'], person['parent_permission'])
+      Student.new(person['classroom'], person['age'], person['name'],
+                  person['id'], parent_permission: person['parent_permission'])
     when 'Teacher'
       Teacher.new(person['specialization'], person['age'], person['name'], person['id'])
     end
@@ -75,6 +76,13 @@ class HandleFiles
   end
 
   # Handle rentals.json file
+  def self.rental_to_object(rental)
+    person = person_to_object(rental['person'])
+    book = rental['book']
+    book_obj = Book.new(book['title'], book['author'], book['id'])
+    puts book_obj.title
+    Rental.new(rental['date'], person, book_obj)
+  end
 
   # Read rentals
   def self.read_rental(rentals)
@@ -82,10 +90,10 @@ class HandleFiles
     return unless File.exist?(path)
 
     rentals_file = File.open(path)
-    JSON.parse(rentals_file.read).each do |_rental|
-      rentals << Book.new(book['title'], book['author'], book['id'])
+    JSON.parse(rentals_file.read).each do |rental|
+      rentals << rental_to_object(rental)
     end
-    rentals_files.close
+    rentals_file.close
   end
 
   # Write rentals

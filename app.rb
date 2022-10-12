@@ -48,6 +48,7 @@ class App
     # Read data from json files
     HandleFiles.read_books(@books)
     HandleFiles.read_people(@people)
+    HandleFiles.read_rental(@rentals)
     user_choice = 0
     puts "\nWelcome to School Library App!"
     while user_choice != 7

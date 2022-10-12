@@ -47,7 +47,7 @@ class Rental
   end
 
   # List all rentals for a given person id.
-  def self.show_rentals(people)
+  def self.show_rentals(people, rentals)
     print 'ID of person: '
     id = gets.chomp.to_i
     person = nil
@@ -58,8 +58,8 @@ class Rental
       puts "Person #{id}: #{person.name} doesn't have rentals"
     else
       puts 'Rentals:'
-      person.rentals.each do |rental|
-        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}"
+      rentals.each do |rental|
+        puts "Date: #{rental.date}, Book: \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id
       end
     end
   end
@@ -68,7 +68,7 @@ class Rental
     if rentals.empty?
       puts 'There are not rentals registered'
     else
-      show_rentals(people)
+      show_rentals(people, rentals)
     end
   end
 end
