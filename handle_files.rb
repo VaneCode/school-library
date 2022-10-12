@@ -78,7 +78,6 @@ class HandleFiles
     person = person_to_object(rental['person'])
     book = rental['book']
     book_obj = Book.new(book['title'], book['author'], book['id'])
-    puts book_obj.title
     Rental.new(rental['date'], person, book_obj)
   end
 
