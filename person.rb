@@ -63,3 +63,4 @@ class Person < Nameable
     @age >= 18
   end
 end
+

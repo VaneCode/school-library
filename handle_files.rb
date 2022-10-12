@@ -35,11 +35,12 @@ class HandleFiles
   # Auxiliary methods
   def self.person_to_json(person)
     if person.instance_of?(Student)
-      puts 'Student'
-      { class: person.class, id: person.id, name: person.name, age: person.age, classroom: person.classroom, parent_permission: person.parent_permission }
+      { class: person.class, id: person.id, name: person.name,
+        age: person.age, classroom: person.classroom, parent_permission: person.parent_permission }
     else
-      puts 'Teacher'
-      { class: person.class, id: person.id, name: person.name, age: person.age, specialization: person.specialization, parent_permission: person.parent_permission }
+      { class: person.class, id: person.id, name: person.name,
+        age: person.age, specialization: person.specialization,
+        parent_permission: person.parent_permission }
     end
   end
 
@@ -47,7 +48,7 @@ class HandleFiles
     case person['class']
     when 'Student'
       Student.new(person['classroom'], person['age'], person['name'], person['id'], person['parent_permission'])
-    when  'Teacher'
+    when 'Teacher'
       Teacher.new(person['specialization'], person['age'], person['name'], person['id'])
     end
   end
@@ -76,6 +77,16 @@ class HandleFiles
   # Handle rentals.json file
 
   # Read rentals
+  def self.read_rental(rentals)
+    path = "#{DATA_DIRECTORY}rentals.json"
+    return unless File.exist?(path)
+
+    rentals_file = File.open(path)
+    JSON.parse(rentals_file.read).each do |_rental|
+      rentals << Book.new(book['title'], book['author'], book['id'])
+    end
+    rentals_files.close
+  end
 
   # Write rentals
 end

@@ -32,3 +32,4 @@ end
 
 student = Student.new(nil, 23, 'aron', 56, false)
 puts student.id
+puts student.name
