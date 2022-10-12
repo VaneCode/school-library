@@ -1,0 +1,26 @@
+[
+  {
+    "class": "Student",
+    "id": 493,
+    "name": "g",
+    "age": 3,
+    "classroom": null,
+    "parent_permission": true
+  },
+  {
+    "class": "Teacher",
+    "id": 512,
+    "name": "r",
+    "age": 3,
+    "specialization": "D",
+    "parent_permission": true
+  },
+  {
+    "class": "Student",
+    "id": 298,
+    "name": "student",
+    "age": 32,
+    "classroom": null,
+    "parent_permission": true
+  }
+]
