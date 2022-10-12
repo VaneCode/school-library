@@ -16,7 +16,6 @@ class HandleFiles
 
     books_file = File.open(path)
     JSON.parse(books_file.read).each { |book| books << Book.new(book['title'], book['author'], book['id']) }
-    books_file.close
   end
 
   # Write books
@@ -61,7 +60,6 @@ class HandleFiles
 
     people_file = File.open(path)
     JSON.parse(people_file.read).each { |person| people << person_to_object(person) }
-    people_file.close
   end
 
   # Write people
@@ -101,7 +99,6 @@ class HandleFiles
     JSON.parse(rentals_file.read).each do |rental|
       rentals << rental_to_object(rental)
     end
-    rentals_file.close
   end
 
   # Write rentals
