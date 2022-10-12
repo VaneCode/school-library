@@ -14,5 +14,21 @@
       "author": "Trapo",
       "id": 323
     }
+  },
+  {
+    "date": "2002-20-20",
+    "person": {
+      "class": "Student",
+      "id": 298,
+      "name": "student",
+      "age": 32,
+      "classroom": null,
+      "parent_permission": true
+    },
+    "book": {
+      "title": "title",
+      "author": "author",
+      "id": 65991
+    }
   }
 ]
