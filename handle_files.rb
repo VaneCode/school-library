@@ -84,6 +84,14 @@ class HandleFiles
     Rental.new(rental['date'], person, book_obj)
   end
 
+  def self.rental_to_json(rental)
+    {
+      date: rental.date,
+      person: person_to_json(rental.person),
+      book: { title: rental.book.title, author: rental.book.author, id: rental.book.id }
+    }
+  end
+
   # Read rentals
   def self.read_rental(rentals)
     path = "#{DATA_DIRECTORY}rentals.json"
@@ -97,4 +105,13 @@ class HandleFiles
   end
 
   # Write rentals
+  def self.write_rentals(rentals)
+    return if rentals.empty?
+
+    path_file = "#{DATA_DIRECTORY}rentals.json"
+    data_rentals = rentals.map do |rental|
+      rental_to_json(rental)
+    end
+    File.write(path_file, JSON.pretty_generate(data_rentals))
+  end
 end

@@ -54,8 +54,6 @@ class Rental
     people.each { |p| person = p if p.id == id }
     if person.nil?
       puts "There is not person with the id #{id} registered"
-    elsif person.rentals.length.zero?
-      puts "Person #{id}: #{person.name} doesn't have rentals"
     else
       puts 'Rentals:'
       rentals.each do |rental|

@@ -27,6 +27,7 @@ class App
   def save_data
     HandleFiles.write_books(@books)
     HandleFiles.write_people(@people)
+    HandleFiles.write_rentals(@rentals)
   end
 
   def run_choice(choice)

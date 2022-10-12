@@ -1,34 +1,18 @@
 [
-    {
-        "date": "11/10/2022",
-        "book":  {
-            "title": "Chempo",
-            "author": "Trapo",
-            "id": 323
-          },
-        "person": {
-            "class": "Student",
-            "id": 493,
-            "name": "g",
-            "age": 3,
-            "classroom": null,
-            "parent_permission": true
-          }
+  {
+    "date": "11/10/2022",
+    "person": {
+      "class": "Teacher",
+      "id": 512,
+      "name": "r",
+      "age": 3,
+      "specialization": "D",
+      "parent_permission": true
     },
-    {
-        "date": "11/10/2022",
-        "book":  {
-            "title": "book",
-            "author": "aron",
-            "id": 27695
-          },
-        "person": {
-            "class": "Teacher",
-            "id": 512,
-            "name": "r",
-            "age": 3,
-            "specialization": "D",
-            "parent_permission": true
-          }
+    "book": {
+      "title": "Chempo",
+      "author": "Trapo",
+      "id": 323
     }
+  }
 ]
