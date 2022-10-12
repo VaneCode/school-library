@@ -4,7 +4,7 @@ describe Student do
   it 'should say "¯\(ツ)/¯" when we call the play_hooky method' do
     student = Student.new('p1', 32)
     message = student.play_hooky
-    expect(message).to eq '¯\(ツ)/¯'
+    expect(message).to eql '¯\(ツ)/¯'
   end
 
   it 'should be able to create a student' do
